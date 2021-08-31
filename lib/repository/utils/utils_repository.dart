@@ -16,7 +16,7 @@ class UtilsRepository {
   Future<PdfModel> filePicker(GlobalKey<ScaffoldState> _scaffoldKey, String fileExtension, {int maxMBfileSize = 1}) async {
     try {
       
-      final File file = await FilePicker.getFile(type: FileType.CUSTOM, fileExtension: fileExtension);
+      final File file = await FilePicker.getFile(type: FileType.custom, allowedExtensions: ['fileExtension']);
       if(!validateFileSize(maxMBfileSize, file)) {
         _scaffoldKey.currentState.showSnackBar(SnackBar(duration: Duration(seconds: 8), content: Text("El archivo no puede ser mayor a ${maxMBfileSize}MB"), backgroundColor: Colors.red,));
         return null;

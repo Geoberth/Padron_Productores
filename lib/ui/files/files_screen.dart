@@ -243,7 +243,7 @@ class _FilesScreenState extends State<FilesScreen> {
   }
 
   Future<PdfModel> _filePicker() async {
-    final File file = await FilePicker.getFile(type: FileType.CUSTOM, fileExtension: 'pdf');
+    final File file = await FilePicker.getFile(type: FileType.custom, allowedExtensions: ['pdf']);
     int fileSizeBytes = File(file.resolveSymbolicLinksSync()).lengthSync();
     double fileSizeMB = (fileSizeBytes / (1e+6));
     if(fileSizeMB > 1) {
